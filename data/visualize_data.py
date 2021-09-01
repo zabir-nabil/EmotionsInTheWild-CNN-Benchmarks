@@ -47,7 +47,7 @@ for random_image in random.sample(annotations['train'], 10):
     frame = cv2.rectangle(frame, (x1, y1), (x2, y2), (36,255,12), 1)
     cv2.putText(frame, label, (x1, y1-5), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (99,255,99), 2)
 
-    gif_frames.append(resize_with_padding(Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB).astype('uint8'), 'RGB'), (512, 512)))
+    gif_frames.append(resize_with_padding(Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB).astype('uint8'), 'RGB'), (512, 345)))
     
     cv2.imshow('Emotic Dataset Visualizer', frame)
 
