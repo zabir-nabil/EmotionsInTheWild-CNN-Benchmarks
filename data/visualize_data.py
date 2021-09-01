@@ -32,8 +32,8 @@ annotations = json.load(open("annotations.json"))
 dataset_root = "emotic"
 
 print(f"Train samples: {len(annotations['train'])}")
-print(f"Train samples: {len(annotations['val'])}")
-print(f"Train samples: {len(annotations['test'])}")
+print(f"Validation samples: {len(annotations['val'])}")
+print(f"Test samples: {len(annotations['test'])}")
 
 gif_frames = []
 for random_image in random.sample(annotations['train'], 10):

@@ -25,9 +25,26 @@ For emotic dataset (pre-training),
 
 * Download the json annotations from https://www.kaggle.com/furcifer/emoticlabelsjson
 
-```console
-pip install -r requirements.txt
-```
+* Install dependencies (`python >= 3.5`)
+    ```console
+    pip install -r requirements.txt
+    ```
+
+### Training
+
+* Set the hyperparameters in the `config.py` file
+
+* Run, `train.py`
+
+### Pre-trained models
+
+| Model           | Dataset       | pre-trained weight                                                                  |
+|-----------------|---------------|-------------------------------------------------------------------------------------|
+| resnet34        | emotic        | [resnet34](https://gitlab.com/zabir.al.nazi/emotions-in-the-wild-pretrained-models) |
+| resnet50        | emotic + cfid | [resnet50](https://gitlab.com/zabir.al.nazi/emotions-in-the-wild-pretrained-models) |
+| efficientnet-b0 | emotic + cfid | [efn-b0](https://gitlab.com/zabir.al.nazi/emotions-in-the-wild-pretrained-models)   |
+| efficientnet-b1 | emotic + cfid | [efn-b1](https://gitlab.com/zabir.al.nazi/emotions-in-the-wild-pretrained-models)   |
+| efficientnet-b2 | emotic + cfid | [efn-b2](https://gitlab.com/zabir.al.nazi/emotions-in-the-wild-pretrained-models)   |
 
 ### Support
 
