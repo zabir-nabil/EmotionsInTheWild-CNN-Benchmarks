@@ -1,3 +1,7 @@
+"""
+training + testing config
+author: github.com/zabir-nabil
+"""
 class Config:
     dataset = "emotic"
     dataset_path = "data/emotic"

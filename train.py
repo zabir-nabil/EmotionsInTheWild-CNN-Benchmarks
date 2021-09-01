@@ -1,3 +1,7 @@
+"""
+training code
+author: github.com/zabir-nabil
+"""
 from config import Config as cfg
 from dataloader import EmotionDataset
 from model import EmotionCNN, EmotionTrainer

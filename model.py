@@ -1,5 +1,6 @@
 """
 cnn model implementation
+author: github.com/zabir-nabil
 """
 import torch
 from torchvision import models
