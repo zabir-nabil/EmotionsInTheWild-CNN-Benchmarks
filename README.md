@@ -54,8 +54,10 @@ For emotic dataset (pre-training),
 ### Support
 
 > **Tested with:** `python3.6` `python3.7` `python3.8`
+> **Model support:** `resnet 18 to 152` `resnext 50, 101` `efficientnets b0 to b7`
 
 > **TO-DO:**
+ - [x] multi-gpu training
  - [x] augmentation
  - [ ] encoding facial landmarks
 
