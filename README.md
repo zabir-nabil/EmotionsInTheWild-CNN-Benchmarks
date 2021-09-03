@@ -29,6 +29,11 @@ For emotic dataset (pre-training),
     ```console
     pip install -r requirements.txt
     ```
+* If you want to use docker,
+    ```
+    nvidia-docker build -t nabil/efncv:eitw .
+    nvidia-docker run -it -d -v /home/tigerit/nab_projs/kag/EmotionsInTheWild-CNN-Benchmarks:/eitw --net=host --ipc=host nabil/efncv:eitw /bin/bash
+    ```
 
 ### Training
 
