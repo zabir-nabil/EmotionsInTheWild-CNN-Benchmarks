@@ -1,2 +1,3 @@
 data/emotic/
 data/annotations.json
+models/*.pt

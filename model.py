@@ -137,7 +137,12 @@ class EmotionTrainer:
         
 
     def train(self, model, n_epochs = 1):
-        print(f"Training {model.cnn_name} for {n_epochs} epochs.")
+        if type(cfg.multi_gpus) == list:
+            model_name = model.module.cnn_name
+        else:
+            model_name = model.cnn_name
+        print(f"Training {model_name} for {n_epochs} epochs.")
+        result_log = open(f"models/{model_name}_results.txt", "w")
         self.model = model
         # take model to device
         self.model = model.to(self.device)
@@ -145,6 +150,7 @@ class EmotionTrainer:
         self.optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
         self.scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(self.optimizer, 'max', patience = 5)
 
+        best_validation_score = 0.0
         for epoch in range(n_epochs):
             print(f"Epoch {epoch+1}")
             result = []
@@ -184,14 +190,25 @@ class EmotionTrainer:
                     # average = samples, is only for multi-label
                     
                     
-                epoch_loss = running_loss / len(data_loader[phase])
-                epoch_acc = running_corrects / len(data_loader[phase])
+                epoch_loss = running_loss / len(self.data_loader[phase])
+                epoch_acc = running_corrects / len(self.data_loader[phase])
 
                 if phase == "val":
                     self.scheduler.step(epoch_acc)
+                    if epoch_acc > best_validation_score:
+                        best_validation_score = epoch_acc
+                        # save model
+                        torch.save({
+                            'epoch': epoch,
+                            'model_state_dict': self.model.state_dict(),
+                            'optimizer_state_dict': self.optimizer.state_dict(),
+                            'val_acc': epoch_acc,
+                            'val_loss': epoch_loss
+                            }, f"models/{model_name}_best.pt")
 
 
                 result.append('{} Loss: {:.4f} Acc: {:.4f}'.format(phase, epoch_loss, epoch_acc))
             print(result)
+            result_log.write(str(result) + "\n")
 
 

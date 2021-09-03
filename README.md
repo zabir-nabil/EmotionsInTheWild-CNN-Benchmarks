@@ -32,7 +32,7 @@ For emotic dataset (pre-training),
 * If you want to use docker,
     ```
     nvidia-docker build -t nabil/efncv:eitw .
-    nvidia-docker run -it -d -v /home/tigerit/nab_projs/kag/EmotionsInTheWild-CNN-Benchmarks:/eitw --net=host --ipc=host nabil/efncv:eitw /bin/bash
+    nvidia-docker run -it -d -v /path_to_github_repo/EmotionsInTheWild-CNN-Benchmarks/:/eitw/ --net=host --ipc=host nabil/efncv:eitw /bin/bash
     ```
 
 ### Training
